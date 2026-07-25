@@ -1,126 +1,242 @@
-# Personal Finance Tracker
+# 💰 Personal Finance Tracker
 
-A full-stack daily expense tracking application with a React frontend and a Node.js/Express backend backed by Neon PostgreSQL.
+A full-stack Personal Finance Tracker that helps users manage expenses, track monthly budgets, and visualize spending trends. The application is built using **React**, **Node.js**, **Express**, and **PostgreSQL**, with a modern **Docker-based DevOps workflow**.
 
-🔗 **[Live Demo](https://personal-finance-tracker-cyan-tau.vercel.app/login)** · **[GitHub Repo](https://github.com/sakib1133/personal-finance-tracker)**
+🔗 **Live Demo:** https://personal-finance-tracker-cyan-tau.vercel.app/login
 
-## Features
+🔗 **GitHub Repository:** https://github.com/sakib1133/personal-finance-tracker
 
-- **Add/Edit Expenses**: Form with validation (no negative amounts, no future dates, category required)
-- **Expense Table**: Sortable table showing expenses newest first with edit and delete buttons
-- **Filtering**: Filter by category and date range (This Month, Last Month, Custom)
-- **Summary Panel**: Shows total this month, total per category, and highest single expense
-- **Pie Chart**: Visual representation of spending by category using Recharts
-- **CSV Export**: Download currently filtered expenses as CSV file
+---
 
-## Tech Stack
+# 🚀 Features
 
-### Frontend
-- React 18
+- 🔐 JWT Authentication
+- 👤 User Registration & Login
+- 💸 Add, Edit & Delete Expenses
+- 📊 Monthly Expense Summary
+- 🥧 Expense Analytics with Pie Charts
+- 📂 Category-wise Expense Tracking
+- 📅 Filter Expenses by Date
+- 📥 Export Expenses as CSV
+- 💾 PostgreSQL Database (Neon)
+- 📱 Responsive UI
+
+---
+
+# 🏗️ System Architecture
+
+```text
+                GitHub Repository
+                       │
+                 git push (main)
+                       │
+                       ▼
+              GitHub Actions
+         (Build Docker Image)
+                       │
+                       ▼
+          Docker Image Validation
+                       │
+                       ▼
+         Render (Docker Container)
+                       │
+               Express REST API
+                       │
+                       ▼
+             Neon PostgreSQL
+                       ▲
+                       │
+       React + Vite Frontend (Vercel)
+```
+
+---
+
+# ⚙️ DevOps Workflow
+
+```text
+Developer
+    │
+    ▼
+Write Code
+    │
+    ▼
+Git Commit
+    │
+    ▼
+Git Push
+    │
+    ▼
+GitHub Actions
+(Build Docker Image)
+    │
+    ▼
+Render Deploys Docker Container
+    │
+    ▼
+Express Backend
+    │
+    ▼
+Neon PostgreSQL
+    ▲
+    │
+React Frontend (Vercel)
+```
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+- React.js
 - Vite
 - Tailwind CSS
-- Recharts
 - Axios
+- Recharts
 
-### Backend
+## Backend
+
 - Node.js
-- Express
-- PostgreSQL via pg
-- JWT authentication
+- Express.js
+- PostgreSQL (pg)
+- JWT Authentication
 - bcryptjs
 - UUID
 
-  ## Deployment
+## Database
 
-- Frontend: Vercel
-- Backend: Render
-- Database: PostreSQL
-- Authentication: JWT
+- Neon PostgreSQL
 
-## Project Structure
+## DevOps
 
+- Git
+- GitHub
+- Docker
+- Docker Compose
+- GitHub Actions
+- Render
+- Vercel
+
+---
+
+# 📁 Project Structure
+
+```text
+personal-finance-tracker/
+│
+├── client/                  # React Frontend
+│
+├── server/                  # Express Backend
+│   ├── Dockerfile
+│   ├── .dockerignore
+│   ├── db.js
+│   └── server.js
+│
+├── .github/
+│   └── workflows/
+│       └── docker.yml
+│
+├── docker-compose.yml
+├── render.yaml
+├── README.md
+└── DEPLOYMENT.md
 ```
-Mini-Expense-Tracker/
-├── client/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── ExpenseForm.jsx
-│   │   │   ├── ExpenseTable.jsx
-│   │   │   ├── FilterBar.jsx
-│   │   │   ├── SummaryPanel.jsx
-│   │   │   ├── PieChart.jsx
-│   │   │   └── ExportButton.jsx
-│   │   ├── api/
-│   │   │   └── expenses.js
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
-│   ├── index.html
-│   ├── package.json
-│   ├── vite.config.js
-│   ├── tailwind.config.js
-│   └── postcss.config.js
-└── server/
-    ├── data/
-    │   └── expenses.json
-    ├── server.js
-    └── package.json
+
+---
+
+# 🚀 Local Setup
+
+## Clone Repository
+
+```bash
+git clone https://github.com/sakib1133/personal-finance-tracker.git
+
+cd personal-finance-tracker
 ```
 
-## Installation
+---
 
-### Server Setup
+## Backend
 
 ```bash
 cd server
+
 npm install
+
 npm start
 ```
 
-The server will run on `http://localhost:5000`
+---
 
-### Client Setup
+## Frontend
 
 ```bash
 cd client
+
 npm install
+
 npm run dev
 ```
 
-The client will run on `http://localhost:3000`
+---
 
-## API Endpoints
+# 🐳 Docker
 
-- `GET /expenses` - Get all expenses
-- `POST /expenses` - Create a new expense
-- `PUT /expenses/:id` - Update an expense
-- `DELETE /expenses/:id` - Delete an expense
+## Build Docker Image
 
-## Expense Data Model
-
-```json
-{
-  "id": "uuid",
-  "amount": 100.50,
-  "category": "Food",
-  "date": "2024-01-15",
-  "note": "Lunch",
-  "createdAt": "2024-01-15T10:30:00.000Z"
-}
+```bash
+docker build -t finance-backend ./server
 ```
 
-## Categories
+## Run Container
 
-- Food
-- Transport
-- Bills
-- Entertainment
-- Other
+```bash
+docker run --rm \
+-p 5001:5001 \
+--env-file server/.env \
+finance-backend
+```
 
-## Author
+## Docker Compose
+
+```bash
+docker compose up --build
+```
+
+Stop
+
+```bash
+docker compose down
+```
+
+---
+
+# ☁️ Deployment
+
+| Service | Platform |
+|----------|----------|
+| Frontend | Vercel |
+| Backend | Render (Docker) |
+| Database | Neon PostgreSQL |
+| CI | GitHub Actions |
+
+---
+
+# 📈 DevOps Highlights
+
+- Dockerized Express Backend
+- GitHub Actions for automated Docker image builds
+- Render Docker deployment
+- Cloud-hosted PostgreSQL using Neon
+- Environment variable management
+- Version-controlled infrastructure configuration
+
+---
+
+# 👨‍💻 Author
 
 **Mohd Sakib Malik**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/mohd-sakib-malik-97ab4a283/)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/sakib1133)
-[![LeetCode](https://img.shields.io/badge/LeetCode-Profile-orange)](https://leetcode.com/u/sakib_malik79/)
+- GitHub: https://github.com/sakib1133
+- LinkedIn: https://www.linkedin.com/in/mohd-sakib-malik-97ab4a283/
+- LeetCode: https://leetcode.com/u/sakib_malik79/
