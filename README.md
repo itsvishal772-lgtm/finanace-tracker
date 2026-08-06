@@ -18,7 +18,6 @@ A full-stack Personal Finance Tracker that helps user to manage expenses, track 
 - 📂 Category-wise Expense Tracking
 - 📅 Filter Expenses by Date
 - 📥 Export Expenses as CSV
-- 💾 PostgreSQL Database (Neon)
 - 📱 Responsive UI
 
 ---
