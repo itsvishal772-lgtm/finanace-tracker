@@ -1,6 +1,6 @@
 # 💰 Personal Finance Tracker
 
-A full-stack Personal Finance Tracker that helps user to manage expenses, track monthly budgets, and visualize spending trends. The application is built using **React**, **Node.js**, **Express**, and **PostgreSQL**, with a modern **Docker-based DevOps workflow**.
+A full-stack Personal Finance Tracker that helps user to manage expenses, track monthly budgets, and track spending trends. The application is built using **React**, **Node.js**, **Express**, and **PostgreSQL**, with a modern **Docker-based DevOps workflow**.
 
 🔗 **Live Demo:** https://personal-finance-tracker-cyan-tau.vercel.app/login
 
