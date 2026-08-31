@@ -89,8 +89,7 @@ React Frontend (Vercel)
 
 - React.js
 - Vite
-- Tailwind CSS
-- Axios
+- Tailwind CS
 - Recharts
 
 ## Backend
